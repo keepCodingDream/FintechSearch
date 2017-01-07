@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd
+        ">
+
+    <!-- Shiro -->
+    <bean id="restAuthFilter" class="com.tracy.task.shiro.RestAuthFilter"/>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/#!/user/login"/>
+        <property name="filters">
+            <util:map>
+                <entry key="restAuth" value-ref="restAuthFilter"/>
+            </util:map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /rest/oauth2/** = anon
+                /rest/bank/debtRegister = anon
+                /rest/product/intro/** = anon
+                /rest/root/** = anon
+                /rest/jixin/** = anon
+                /rest/debt/** = anon
+                /rest/captcha/** = anon
+                /rest/more/** = anon
+                /rest/admin/** = anon
+                /rest/** = restAuth
+            </value>
+        </property>
+    </bean>
+
+    <!--<bean id="redisRealm" class="com.cashbus.marketplace.shiro.RedisRealm" />-->
+
+    <bean id="usernamePasswordRealm" class="com.tracy.task.shiro.UsernamePasswordRealm"/>
+    <bean id="usernameRealm" class="com.tracy.task.shiro.UsernameRealm"/>
+
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager">
+            <ref bean="shiroCacheManager"/>
+        </property>
+        <property name="realms">
+            <list>
+                <ref bean="usernamePasswordRealm"/>
+                <ref bean="usernameRealm"/>
+                <!--<ref bean="redisRealm"/>-->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+</beans>
