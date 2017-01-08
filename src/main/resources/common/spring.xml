@@ -8,5 +8,5 @@
     <import resource="common-spring.xml"/>
     <import resource="redis-spring.xml"/>
     <import resource="env-spring.xml"/>
-    <import resource="elasticseach.xml"/>
+    <import resource="elasticsearch.xml"/>
 </beans>

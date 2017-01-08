@@ -26,7 +26,7 @@ public class TaskBaseDao extends GenericDao {
 
     @Override
     public String getBasePackage() {
-        return "com.db.task.mapper";
+        return "com.tracy.task.mapper";
     }
 
 }

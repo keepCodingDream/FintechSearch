@@ -73,7 +73,7 @@
     </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.tracy"/>
+        <property name="basePackage" value="com.tracy.task"/>
         <property name="markerInterface" value="com.cashbus.mybatis.GenericMapper"/>
         <property name="sqlSessionFactoryBeanName" value="zhugeSqlSessionFactory"/>
         <!--<property name="properties">-->
