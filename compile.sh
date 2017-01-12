@@ -14,7 +14,7 @@ fi
 echo '#########################end to pull the latest code'
 
 echo '#########################do mvn clean install'
-mvn -e -Dcashbus.env=PROD clean install
+mvn -e -Dtracy.env=PROD clean install
 
 echo 'copying into tmp'
 rm -Rf ~/tmp/search
