@@ -27,7 +27,7 @@ public class ImportDataJob {
     @Resource
     private SearchService searchService;
 
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void refreshFinTechData() {
         Calendar now = Calendar.getInstance();
         now.add(Calendar.MONTH, -3);
@@ -56,6 +56,7 @@ public class ImportDataJob {
             finTechArticleEs.setId(finTechArticle.getId().toString());
             finTechArticleEs.setContent(finTechArticle.getContent());
             finTechArticleEs.setTitle(finTechArticle.getTitle());
+            finTechArticleEs.setUrl(finTechArticle.getUrl());
         }
         return finTechArticleEs;
     }

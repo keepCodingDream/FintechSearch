@@ -16,13 +16,15 @@ public class FinTechArticleEs {
     private String id;
     private String title;
     private String content;
+    private String url;
 
     public FinTechArticleEs() {
     }
 
-    public FinTechArticleEs(String title, String content) {
+    public FinTechArticleEs(String title, String content, String url) {
         this.title = title;
         this.content = content;
+        this.url = url;
     }
 
 }

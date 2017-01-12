@@ -4,6 +4,9 @@ import com.tracy.task.model.BaseEs;
 import com.tracy.task.model.FinTechArticleEs;
 import com.tracy.task.repositories.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
@@ -69,17 +72,12 @@ public class SearchService {
         elasticsearchTemplate.refresh(FinTechArticleEs.class);
     }
 
-
     /**
-     * 搜索
+     * 根据关键词检索
      *
-     * @param indexName 索引名称
-     * @param type      类型
-     * @param param     搜索条件
-     * @param obj       obj类型
-     * @return 搜索结果
+     * @param word 关键词
      */
-    public <T> T searchInfo(String indexName, String type, String param, Class<T> obj) throws Exception {
-        return null;
+    public Page<FinTechArticleEs> searchInfo(String word) throws Exception {
+        return articleRepository.findByTitleOrContent(word, word, new PageRequest(0, 10));
     }
 }
