@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>Tracy</groupId>
-            <artifactId>tracy-myBatis</artifactId>
+            <artifactId>tracy-mybatis</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
         <dependency>
