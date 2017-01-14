@@ -76,4 +76,26 @@
         <extension>html</extension>
         <mime-type>text/html;charset=UTF-8</mime-type>
     </mime-mapping>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+            <taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/fmt-rt</taglib-uri>
+            <taglib-location>/WEB-INF/tld/fmt-1_0-rt.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core-rt</taglib-uri>
+            <taglib-location>/WEB-INF/tld/c-1_0-rt.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/x</taglib-uri>
+            <taglib-location>/WEB-INF/tld/x.tld</taglib-location>
+        </taglib>
+    </jsp-config>
 </web-app>

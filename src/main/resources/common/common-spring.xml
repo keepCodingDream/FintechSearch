@@ -25,6 +25,8 @@
 
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/img/**" location="/img/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
     <!--RestTemplate-->
     <bean id="jsonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
