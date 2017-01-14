@@ -77,7 +77,7 @@ public class SearchService {
      *
      * @param word 关键词
      */
-    public Page<FinTechArticleEs> searchInfo(String word) throws Exception {
-        return articleRepository.findByTitleOrContent(word, word, new PageRequest(0, 10));
+    public Page<FinTechArticleEs> searchInfo(String word, Integer index) throws Exception {
+        return articleRepository.findByTitleOrContent(word, word, new PageRequest(index, 10));
     }
 }

@@ -17,8 +17,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>CashBus</groupId>
-            <artifactId>CashBus-libMyBatis</artifactId>
+            <groupId>Tracy</groupId>
+            <artifactId>tracy-myBatis</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
         <dependency>

@@ -29,16 +29,23 @@ public class SearchRest extends BaseRest {
 
     @ResponseBody
     @RequestMapping(value = "/query", method = {RequestMethod.GET, RequestMethod.POST})
-    public Map<String, Object> disPatcher(@RequestParam(value = "value") String value) throws Exception {
+    public Map<String, Object> disPatcher(@RequestParam(value = "value") String value, @RequestParam(required = false, value = "index") Integer index) throws Exception {
         Map<String, Object> response = new HashMap<>();
         if (StringUtils.isEmpty(value)) {
             return response;
         }
-        Page<FinTechArticleEs> pages = searchService.searchInfo(value);
+        if (index == null) {
+            index = 0;
+        }
+        Page<FinTechArticleEs> pages = searchService.searchInfo(value, index);
         List<FinTechArticleEs> contents = pages.getContent();
         for (FinTechArticleEs item : contents) {
             if (item.getContent().length() > 200) {
                 item.setContent(item.getContent().substring(0, 200));
+            }
+            if (StringUtils.isEmpty(item.getTitle())) {
+                int length = item.getContent().length() > 16 ? 16 : item.getContent().length();
+                item.setTitle(item.getContent().substring(0, length - 1));
             }
         }
         response.put("result", contents);
@@ -50,9 +57,9 @@ public class SearchRest extends BaseRest {
 
 
     @RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView list(@RequestParam(value = "value") String value) throws Exception {
+    public ModelAndView list(@RequestParam(value = "value") String value, @RequestParam(required = false, value = "index") Integer index) throws Exception {
         ModelAndView modelAndView = new ModelAndView("/list.jsp");
-        modelAndView.addObject("response", disPatcher(value));
+        modelAndView.addObject("response", disPatcher(value, index));
         return modelAndView;
     }
 }

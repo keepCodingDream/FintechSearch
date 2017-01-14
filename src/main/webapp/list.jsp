@@ -19,7 +19,7 @@
         <c:forEach var="result" items="${response.result}">
             <li>
                 <div class="title">
-                    <h2><a href="${result.url}">${result.title}</a></h2>
+                    <h2><a href="${result.url}" target="_blank">${result.title}</a></h2>
                 </div>
                 <div class="content">
                     <h3>${result.content}</h3>
