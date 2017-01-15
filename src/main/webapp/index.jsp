@@ -5,26 +5,21 @@
     <style>body {
         font-family: 宋体
     }
-
     img {
         border: 0
     }
-
     td, p {
         font-size: 12px
     }
-
     p {
         width: 600px;
         margin: 0;
         padding: 0
     }
-
     .ff {
         font-family: Verdana;
         font-size: 16px
     }
-
     #n {
         margin: 0px auto;
         font-size: 12px;

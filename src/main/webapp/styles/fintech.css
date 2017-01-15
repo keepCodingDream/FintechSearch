@@ -1,0 +1,224 @@
+@media (max-width: 400px) {
+    .col-xs-0 {
+        display: none !important;
+    }
+    .login_wrapper {
+        margin-top: 10.5% !important;
+    }
+}
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+/** page user/login **/
+.user-login {
+    /*background: #2a3f54;*/
+}
+.user-login .login_content {
+    padding: 20px;
+}
+.user-login form{
+    background-color: #2a3f54;
+}
+.user-login .cb.form-control {
+    height: 55px;
+    line-height: 55px;
+    font-size: 16px;
+}
+
+.user-login .btn.submit {
+    margin-top: 20px;
+    background-color: #2a3f54;
+    color: #fff;
+    height: 60px;
+    text-align: center;
+    font-size: 23px;
+    line-height: 46px;
+    letter-spacing: 5px;
+}
+.user-login .partner {
+    display: inline-block;
+    z-index: 5;
+    padding: 19px 1px;
+}
+
+.nav_menu .navbar-nav .open .dropdown-menu {
+    /*position: absolute;
+    background: #fff;
+    margin-top: 0;
+    border: 1px solid #D9DEE4;
+    -webkit-box-shadow: none;
+    right: 0;
+    left: auto;
+    width: 180px;*/
+}
+
+/** page user/dashboard  **/
+.nav-md .site_title {
+    padding-left: 5px;
+}
+.nav-sm .main_menu_side {
+    margin-top: 55px;
+}
+.user-dashboard .switchery {
+    width: 55px;
+    height: 20px;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.cb-table, .cb-none-diff-table {
+    word-break: break-word;
+}
+.cb-table.table tbody > tr:last-child{
+    font-weight: bold;
+    font-size: 14px;
+    background-color: yellow;
+    color: #000;
+}
+
+.btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
+    margin-left: -1px;
+}
+.btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group-vertical>.btn:hover, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus, .btn-group>.btn:hover {
+    z-index: 2;
+}
+.btn-group-vertical .btn, .btn-group .btn {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+.btn-group-vertical>.btn, .btn-group>.btn {
+    position: relative;
+    float: left;
+}
+.btn-default:hover {
+    /*color: #333;*/
+    color: #fff;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #333;
+    /*color: #fff;*/
+    text-decoration: none;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+a:active, a:hover {
+    outline: 0;
+}
+.btn {
+    border-radius: 3px;
+}
+.buttons, button, .btn {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.dt-button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-color: #adadad;
+}
+.dt-buttons>.dt-button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+.dt-buttons>.dt-button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dt-buttons>.dt-button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.dt-buttons .dt-button+.dt-button, .dt-buttons .dt-button+.dt-buttons, .dt-buttons .dt-buttons+.dt-button, .dt-buttons .dt-buttons+.dt-buttons {
+    margin-left: -1px;
+}
+
+/** page user/invoice  **/
+ul.cb-invoice-header > li{
+    line-height: 1.5;
+}
+ul.cb-invoice-header > li >span:first-child {
+    display: inline-block;
+    width: 100px;
+    text-align:justify;
+    white-space: nowrap;
+    text-align-last:justify;
+    -ms-text-align-last:justify;
+    font-weight: bold;
+    font-size: 14px;
+}
+ul.cb-invoice-header > li >span:nth-child(2):before {
+    display: inline-block;
+    content: '：';
+    font-weight: bold;
+}
+ul.cb-invoice-header > li >span:nth-child(2) {
+    font-size: 15px;
+}
+.invoice .emphysis {
+    border-bottom: solid 1px #ef0000;
+}
+.invoice .cb-none-diff-table > tbody >tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+.invoice .cb-none-diff-table > tbody >tr.cb-none-border-row > td{
+    border-top: none;
+}
+.invoice .cb-none-diff-table > tbody >tr.summary-row {
+    height: 45px;
+}
+.invoice .cb-none-diff-table > tbody >tr.summary-row > td{
+    line-height: 45px;
+}
+
+/*general css 覆盖*/
+form .item .alert {
+    white-space: normal;
+}

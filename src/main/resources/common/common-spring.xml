@@ -27,6 +27,9 @@
 
     <mvc:resources mapping="/img/**" location="/img/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/libs/**" location="/libs/"/>
+    <mvc:resources mapping="/modules/**" location="/modules/"/>
+    <mvc:resources mapping="/styles/**" location="/styles/"/>
     <!--RestTemplate-->
     <bean id="jsonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
