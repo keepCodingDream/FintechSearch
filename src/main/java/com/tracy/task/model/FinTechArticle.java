@@ -23,4 +23,5 @@ public class FinTechArticle extends GenericReadOnlyModel {
     private String title;
     private String url;
     private String content;
+    private String hashs;
 }
