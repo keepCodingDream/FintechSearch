@@ -33,7 +33,7 @@ public class ImportDataJob {
         now.add(Calendar.MONTH, -3);
         Date time = now.getTime();
         Condition condition = new Condition(FinTechArticle.class);
-        condition.createCriteria().andGreaterThanOrEqualTo("created", time);
+        condition.createCriteria().andGreaterThanOrEqualTo("created", time).andIsNull("isNotify");
         List<FinTechArticle> finTechArticles = taskBaseService.listQueryByCondition(condition);
         if (!CollectionUtils.isEmpty(finTechArticles)) {
             List<FinTechArticleEs> willImport = new ArrayList<>(finTechArticles.size());
