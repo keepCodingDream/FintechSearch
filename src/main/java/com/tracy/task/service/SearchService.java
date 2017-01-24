@@ -1,6 +1,9 @@
 package com.tracy.task.service;
 
+import com.tracy.task.base.CommonUtils;
+import com.tracy.task.dbconfig.ITaskBaseService;
 import com.tracy.task.model.BaseEs;
+import com.tracy.task.model.FinTechArticle;
 import com.tracy.task.model.FinTechArticleEs;
 import com.tracy.task.repositories.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +28,8 @@ import java.util.List;
 @Service
 public class SearchService {
 
+    @Resource
+    private ITaskBaseService taskBaseService;
     @Resource
     private ElasticsearchTemplate elasticsearchTemplate;
     @Resource
@@ -70,6 +75,14 @@ public class SearchService {
             articleRepository.save(item);
         }
         elasticsearchTemplate.refresh(FinTechArticleEs.class);
+    }
+
+
+    public void refreshAndUpdate(FinTechArticle finTechArticle) {
+        FinTechArticleEs finTechArticleEs = CommonUtils.convertFinTech2Es(finTechArticle);
+        articleRepository.save(finTechArticleEs);
+        finTechArticle.setIsNotify(true);
+        taskBaseService.update(finTechArticle);
     }
 
     /**

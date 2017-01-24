@@ -1,6 +1,7 @@
 package com.tracy.task.job;
 
 import com.cashbus.mybatis.Condition;
+import com.tracy.task.base.CommonUtils;
 import com.tracy.task.dbconfig.ITaskBaseService;
 import com.tracy.task.model.FinTechArticle;
 import com.tracy.task.model.FinTechArticleEs;
@@ -36,28 +37,15 @@ public class ImportDataJob {
         condition.createCriteria().andGreaterThanOrEqualTo("created", time).andIsNull("isNotify");
         List<FinTechArticle> finTechArticles = taskBaseService.listQueryByCondition(condition);
         if (!CollectionUtils.isEmpty(finTechArticles)) {
-            List<FinTechArticleEs> willImport = new ArrayList<>(finTechArticles.size());
-            for (FinTechArticle item : finTechArticles) {
-                willImport.add(convertFinTech2Es(item));
-            }
             try {
                 searchService.builderSearchIndex(FinTechArticleEs.class);
-                searchService.refreshData(willImport, "article");
+                for (FinTechArticle item : finTechArticles) {
+                    searchService.refreshAndUpdate(item);
+                }
             } catch (Exception e) {
                 log.error("数据导入出错", e);
             }
         }
     }
 
-    private FinTechArticleEs convertFinTech2Es(FinTechArticle finTechArticle) {
-        FinTechArticleEs finTechArticleEs = null;
-        if (finTechArticle != null) {
-            finTechArticleEs = new FinTechArticleEs();
-            finTechArticleEs.setId(finTechArticle.getId().toString());
-            finTechArticleEs.setContent(finTechArticle.getContent());
-            finTechArticleEs.setTitle(finTechArticle.getTitle());
-            finTechArticleEs.setUrl(finTechArticle.getUrl());
-        }
-        return finTechArticleEs;
-    }
 }
