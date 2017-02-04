@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +49,23 @@ public class SearchRest extends BaseRest {
                 item.setTitle(item.getContent().substring(0, length - 1));
             }
         }
+        String baseUrl = "/search/list?value=" + value + "&index=";
+        Integer totalPages = pages.getTotalPages() > 10 ? 10 : pages.getTotalPages();
+        List<Map<String, String>> nextPages = new ArrayList<>(totalPages);
+        for (int i = 0; i < totalPages; i++) {
+            Map<String, String> item = new HashMap<>();
+            item.put("url", baseUrl + i);
+            item.put("index", i + 1 + "");
+            if (i == index) {
+                item.put("current", "1");
+            }
+            nextPages.add(item);
+        }
         response.put("result", contents);
         response.put("totalElements", pages.getTotalElements());
-        response.put("totalPages", pages.getTotalPages());
+        response.put("totalPages", totalPages);
         response.put("number", pages.getNumber());
+        response.put("next", nextPages);
         return response;
     }
 

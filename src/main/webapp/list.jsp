@@ -88,5 +88,19 @@
         </c:otherwise>
     </c:choose>
 </div>
+<div class="foot" style="text-align: center">
+    <ul class="pagination" style="text-align: center">
+        <c:forEach var="next" items="${response.next}">
+            <c:choose>
+                <c:when test="${next.current=='1'}">
+                    <li class="active"><a href="${next.url}">${next.index}</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="${next.url}">${next.index}</a></li>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </ul>
+</div>
 </body>
 </html>
